@@ -1,4 +1,4 @@
 package com.example.Olympic.Service;
 
-public class MedalStandingService {
+public class MedalStandingsService {
 }
