@@ -30,14 +30,12 @@ public void saveAthletes() {
 
 
     @RequestMapping("athletes/get/{athletesId}")
-public GetAthletsResponse createAthlets (@PathVariable Long AthletesId){
-return athletsService.getAthletsById(AthletesId);
+public GetAthletsResponse createAthlets (@PathVariable Long athletesId){
+return athletsService.getAthletsById(athletesId);
 
 
 
     }
-
-
 
 
 
