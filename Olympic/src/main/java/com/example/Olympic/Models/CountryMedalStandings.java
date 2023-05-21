@@ -22,4 +22,9 @@ public class CountryMedalStandings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String countryName;
+    private int goldMedals;
+    private int silverMedals;
+    private int bronzeMedals;
+
 }
