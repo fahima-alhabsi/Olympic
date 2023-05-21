@@ -18,7 +18,7 @@ import javax.persistence.Id;
 @Setter
 @Entity
 @Data
-public class MedalStandings {
+public class CountryMedalStandings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
