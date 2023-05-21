@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.persistence.Entity;
+import java.util.List;
+
 @RestController
 
 public class AthletesController {
@@ -15,11 +16,14 @@ public class AthletesController {
     AthletsService athletsService;
 
 @RequestMapping ("athletes/create")
-public void saveAthletes(){
- createAthlets();
-
-
+public void saveAthletes() {
+     createAthlets();
 }
+@RequestMapping ("athletes/get")
+    public List<Athletes> getAthletes(){
+        return athletsService.getAthletes();
+    }
+
 
     private void createAthlets() {
         Athletes athletes = new Athletes();
@@ -27,6 +31,7 @@ public void saveAthletes(){
         athletes.setName("fahima");
         athletes.setSport("football");
         athletsService.saveAthletes(athletes);
+
     }
 
 }
