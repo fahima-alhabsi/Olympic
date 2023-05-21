@@ -26,6 +26,7 @@ public void saveAthletes(){
         athletes.setNationality("omani");
         athletes.setName("fahima");
         athletes.setSport("football");
+        athletsService.saveAthletes(athletes);
     }
 
 }
