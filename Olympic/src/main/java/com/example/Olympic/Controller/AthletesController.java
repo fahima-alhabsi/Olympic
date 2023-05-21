@@ -23,7 +23,7 @@ public void saveAthletes() {
     public List<Athletes> getAthletes(){
         return athletsService.getAthletes();
     }
-
+    @RequestMapping("athletes/get/{athletesId}")
 
     private void createAthlets() {
         Athletes athletes = new Athletes();
