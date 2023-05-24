@@ -44,7 +44,7 @@ return athletsService.getAthletsById(athletesId);
 
     }
 
-    @RequestMapping(value = "Athletes/get", method = RequestMethod.GET)
+    @RequestMapping(value = "athletes/get/{nationality}", method = RequestMethod.GET)
     public List<Athletes> getAthletes(@RequestParam(value = "nationality", required = false) String nationality ) {
         if (nationality != null) {
 
