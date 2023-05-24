@@ -29,7 +29,6 @@ public class Athletes {
     private Athletes athletes;
 
 
-    //@ElementCollection
-    //private List<String> eventHistory;
+
 
 }
