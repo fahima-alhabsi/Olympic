@@ -4,6 +4,8 @@ import com.example.Olympic.Models.Athletes;
 import com.example.Olympic.Repositry.AthletesRepositry;
 import com.example.Olympic.ResponseObject.GetAthletsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,8 +39,17 @@ public GetAthletsResponse getAthletsById (long Athletesid){
     return null;
 
 
-
 }
+    public List<Athletes> getAthletesByNationality(String Nationality) {
+        Athletes exampleAthletes = new Athletes();
+        exampleAthletes.setNationality(Nationality);
+
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
+        Example<Athletes> example = Example.of(exampleAthletes, matcher);
+
+        return athletesRepositry.findAll(example);
+    }
+
     public  GetAthletsResponse getAthletAsString (Athletes a) {
         GetAthletsResponse AthletsResponse = new GetAthletsResponse(a.getName(), a.getNationality(), a.getSport()
         );

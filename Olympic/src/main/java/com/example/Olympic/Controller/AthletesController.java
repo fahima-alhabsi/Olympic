@@ -5,9 +5,7 @@ import com.example.Olympic.Models.Athletes;
 import com.example.Olympic.ResponseObject.GetAthletsResponse;
 import com.example.Olympic.Service.AthletsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,8 +35,6 @@ return athletsService.getAthletsById(athletesId);
 
     }
 
-
-
     private void createAthlets() {
         Athletes athletes = new Athletes();
         athletes.setNationality("omani");
@@ -47,5 +43,21 @@ return athletsService.getAthletsById(athletesId);
         athletsService.saveAthletes(athletes);
 
     }
+
+    @RequestMapping(value = "Athletes/get", method = RequestMethod.GET)
+    public List<Athletes> getAthletes(@RequestParam(value = "sport", required = false) String sport ) {
+        if (sport != null) {
+
+            return athletsService.
+        } else {
+
+            return athletsService.getAthletes();
+        }
+    }
+
+
+
+
+
 
 }
