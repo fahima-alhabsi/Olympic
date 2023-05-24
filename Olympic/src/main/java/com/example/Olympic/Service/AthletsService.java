@@ -39,6 +39,13 @@ public GetAthletsResponse getAthletsById (long Athletesid){
 
 
 }
+    public  GetAthletsResponse getAthletAsString (Athletes a) {
+        GetAthletsResponse AthletsResponse = new GetAthletsResponse(a.getName(), a.getNationality(), a.getSport()
+        );
+
+        return AthletsResponse;
+
+    }
 
 
 
