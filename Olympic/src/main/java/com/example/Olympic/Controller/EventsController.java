@@ -6,10 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EventsController {
-    String name;
-    String  sport;
-    String schedule;
-    String results;
+
     @Autowired
     EventsService eventsService;
 }

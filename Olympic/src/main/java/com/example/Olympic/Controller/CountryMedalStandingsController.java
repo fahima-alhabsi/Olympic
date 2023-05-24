@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CountryMedalStandingsController {
-    int NoOfGoldMedalWon;
-    int NoOfSilverMedalWon;
-    int NoOfbronzeMedalWon;
+
     @Autowired
     CountryMedalStandingsService countryMedalStandingsService;
 }
