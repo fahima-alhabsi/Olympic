@@ -30,20 +30,14 @@ public void saveAthletes() {
     @RequestMapping("athletes/get/{athletesId}")
 public GetAthletsResponse createAthlets (@PathVariable Long athletesId){
 return athletsService.getAthletsById(athletesId);
-
-
-
     }
-
     private void createAthlets() {
         Athletes athletes = new Athletes();
         athletes.setNationality("omani");
         athletes.setName("fahima");
         athletes.setSport("football");
         athletsService.saveAthletes(athletes);
-
     }
-
     @RequestMapping(value = "athletes/get/{nationality}", method = RequestMethod.GET)
     public List<Athletes> getAthletes(@RequestParam(value = "nationality", required = false) String nationality ) {
         if (nationality != null) {
