@@ -36,14 +36,14 @@ public class EventsController {
         return eventsService.getevents();
     }
 
-//    @RequestMapping(value = "events/get/{events}", method = RequestMethod.GET)
-//    public List<Events> getEvents(@RequestParam(value = "events", required = false) String events ) {
-//        if (events != null) {
-//
-//            return eventsService.getEventsAsString(events);
-//        } else {
-//
-//            return eventsService.getevents();
-//        }
-//    }
+    @RequestMapping(value = "events/get/{events}", method = RequestMethod.GET)
+    public List<Events> getEvents(@RequestParam(value = "events", required = false) String events ) {
+        if (events != null) {
+
+            return eventsService.getByeventsname(events);
+        } else {
+
+            return eventsService.getevents();
+        }
+    }
 }
