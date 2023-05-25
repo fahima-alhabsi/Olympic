@@ -58,7 +58,22 @@ public GetAthletsResponse getAthletsById (long Athletesid){
 
     }
 
+    public List<Athletes> searchAthletes(String name, String sport, String country) {
+        Athletes exampleAthlete = new Athletes();
+        if (name != null) {
+            exampleAthlete.setName(name);
+        }
+        if (sport != null) {
+            exampleAthlete.setSport(sport);
+        }
+        if (country != null) {
+            exampleAthlete.setNationality(country);
+        }
 
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
+        Example<Athletes> example = Example.of(exampleAthlete, matcher);
+        return athletesRepositry.findAll(example);
+    }
 
 
 }

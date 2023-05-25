@@ -46,4 +46,12 @@ public class EventsController {
             return eventsService.getevents();
         }
     }
+
+    @RequestMapping(value = "events/search", method = RequestMethod.GET)
+    public List<Events> searchEvents(
+            @RequestParam(value = "eventName", required = false) String eventName,
+            @RequestParam(value = "sport", required = false) String sport) {
+
+        return eventsService.searchEvents(eventName, sport);
+    }
 }

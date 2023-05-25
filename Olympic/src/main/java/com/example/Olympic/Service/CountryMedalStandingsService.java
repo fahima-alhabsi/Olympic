@@ -41,4 +41,14 @@ public class CountryMedalStandingsService {
         return countryMedalStandingsRepositry.findAll(example);
 
     }
+    public List<CountryMedalStandings> searchCountryMedalStandings(String countryName) {
+        CountryMedalStandings exampleCountry = new CountryMedalStandings();
+        if (countryName != null) {
+            exampleCountry.setCountryName(countryName);
+        }
+
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
+        Example<CountryMedalStandings> example = Example.of(exampleCountry, matcher);
+        return countryMedalStandingsRepositry.findAll(example);
+    }
 }

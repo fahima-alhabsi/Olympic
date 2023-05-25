@@ -50,7 +50,14 @@ return athletsService.getAthletsById(athletesId);
     }
 
 
+    @RequestMapping(value = "athletes/search", method = RequestMethod.GET)
+    public List<Athletes> searchAthletes(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "sport", required = false) String sport,
+            @RequestParam(value = "country", required = false) String country) {
 
+        return athletsService.searchAthletes(name, sport, country);
+    }
 
 
 

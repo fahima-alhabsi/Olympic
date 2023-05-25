@@ -44,5 +44,10 @@ public class CountryMedalStandingsController {
             return countryMedalStandingsService.getcountry();
         }
     }
+    @RequestMapping(value = "country/search", method = RequestMethod.GET)
+    public List<CountryMedalStandings> searchCountryMedalStandings(
+            @RequestParam(value = "countryName", required = false) String countryName) {
 
+        return countryMedalStandingsService.searchCountryMedalStandings(countryName);
+    }
 }

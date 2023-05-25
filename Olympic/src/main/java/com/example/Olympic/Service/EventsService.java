@@ -46,4 +46,17 @@ public class EventsService {
         return EventsResponse;
 
     }
+    public List<Events> searchEvents(String eventName, String sport) {
+        Events exampleEvent = new Events();
+        if (eventName != null) {
+            exampleEvent.setEventName(eventName);
+        }
+        if (sport != null) {
+            exampleEvent.setSport(sport);
+        }
+
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
+        Example<Events> example = Example.of(exampleEvent, matcher);
+        return eventRepositry.findAll(example);
+    }
 }

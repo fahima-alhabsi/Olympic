@@ -16,8 +16,10 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Data
+
 public class Athletes {
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
