@@ -15,6 +15,5 @@ public class GetEventsResponse {
 
     private String eventName;
     private String sport;
-    private Date schedule;
     private String results;
 }
