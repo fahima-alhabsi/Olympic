@@ -2,10 +2,11 @@ package com.example.Olympic.Controller;
 
 import com.example.Olympic.Models.Athletes;
 import com.example.Olympic.Models.CountryMedalStandings;
+import com.example.Olympic.ResponseObject.GetAthletsResponse;
+import com.example.Olympic.ResponseObject.GetCountryResponse;
 import com.example.Olympic.Service.CountryMedalStandingsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +34,15 @@ public class CountryMedalStandingsController {
         return countryMedalStandingsService.getcountry();
     }
 
+    @RequestMapping(value = "country/get/{country}", method = RequestMethod.GET)
+    public List<CountryMedalStandings> getAthletes(@RequestParam(value = "country", required = false) String country ) {
+        if (country != null) {
+
+            return countryMedalStandingsService.getcountryBycountryname(country);
+        } else {
+
+            return countryMedalStandingsService.getcountry();
+        }
+    }
 
 }

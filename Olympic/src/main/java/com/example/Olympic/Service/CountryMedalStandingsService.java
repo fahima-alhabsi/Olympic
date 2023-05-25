@@ -4,8 +4,7 @@ package com.example.Olympic.Service;
 import com.example.Olympic.Models.Athletes;
 import com.example.Olympic.Models.CountryMedalStandings;
 import com.example.Olympic.Repositry.CountryMedalStandingsRepositry;
-import com.example.Olympic.ResponseObject.GetAthletsResponse;
-import com.example.Olympic.ResponseObject.GetCountyResponse;
+import com.example.Olympic.ResponseObject.GetCountryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -16,30 +15,30 @@ import java.util.List;
 @Service
 public class CountryMedalStandingsService {
     @Autowired
-    CountryMedalStandingsRepositry CountryMedalStandingsRepositry;
+    CountryMedalStandingsRepositry countryMedalStandingsRepositry;
     public void savecountry (CountryMedalStandings country){
-        CountryMedalStandingsRepositry.save(country);
+        countryMedalStandingsRepositry.save(country);
     }
     public List<CountryMedalStandings> getcountry() {
 
-        return CountryMedalStandingsRepositry.findAll();
+        return countryMedalStandingsRepositry.findAll();
     }
 
-    public GetCountyResponse getCountryAsString (CountryMedalStandings country) {
-        GetCountyResponse CountryResponse = new GetCountyResponse(country.getCountryName(), country.getGoldMedals(),
+    public GetCountryResponse getCountryAsString (CountryMedalStandings country) {
+        GetCountryResponse CountryResponse = new GetCountryResponse(country.getCountryName(), country.getGoldMedals(),
                 country.getSilverMedals(),country.getBronzeMedals());
         ;
 
         return CountryResponse;
 
     }
-    public List<CountryMedalStandings> getCountryByCountryname(String country) {
+    public List<CountryMedalStandings> getcountryBycountryname(String countryName) {
         CountryMedalStandings examplecountry = new CountryMedalStandings();
-        examplecountry.setCountryName(country);
+        examplecountry.setCountryName(countryName);
 
         ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
         Example<CountryMedalStandings> example = Example.of(examplecountry, matcher);
-
-        return CountryMedalStandingsRepositry.findAll(example);
+        return countryMedalStandingsRepositry.findAll(example);
+      //  return countryMedalStandingsRepositry.findAll(example);
     }
 }

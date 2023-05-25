@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetCountyResponse {
+public class GetCountryResponse {
 
     private String countryName;
     private int goldMedals;
