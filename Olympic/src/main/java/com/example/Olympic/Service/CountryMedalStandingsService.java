@@ -1,7 +1,7 @@
 package com.example.Olympic.Service;
 
 
-import com.example.Olympic.Models.Athletes;
+
 import com.example.Olympic.Models.CountryMedalStandings;
 import com.example.Olympic.Repositry.CountryMedalStandingsRepositry;
 import com.example.Olympic.ResponseObject.GetCountryResponse;
@@ -39,6 +39,6 @@ public class CountryMedalStandingsService {
         ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
         Example<CountryMedalStandings> example = Example.of(examplecountry, matcher);
         return countryMedalStandingsRepositry.findAll(example);
-      //  return countryMedalStandingsRepositry.findAll(example);
+
     }
 }
