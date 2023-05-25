@@ -18,13 +18,16 @@ import java.util.List;
 public class EventsService {
     @Autowired
     EventRepositry eventRepositry;
-    public void saveevents (Events events){
+
+    public void saveevents(Events events) {
         eventRepositry.save(events);
     }
+
     public List<Events> getevents() {
 
         return eventRepositry.findAll();
     }
+
     public List<Events> getByeventsname(String EventName) {
         Events exampleevent = new Events();
         exampleevent.setEventName(EventName);
@@ -35,4 +38,12 @@ public class EventsService {
 
     }
 
+    public GetEventsResponse getEventsAsString(Events events) {
+        GetEventsResponse EventsResponse = new GetEventsResponse(events.getEventName(), events.getSport(),
+                events.getResults());
+        ;
+
+        return EventsResponse;
+
+    }
 }
