@@ -5,29 +5,32 @@ import com.example.Olympic.Models.Athletes;
 import com.example.Olympic.ResponseObject.GetAthletsResponse;
 import com.example.Olympic.Service.AthletsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@RequestMapping("athletes")
 @RestController
 
 public class AthletesController {
     @Autowired
     AthletsService athletsService;
 
-@RequestMapping ("athletes/create")
+@RequestMapping ("create")
 public void saveAthletes() {
      createAthlets();
 }
 
 
-@RequestMapping ("athletes/get")
+@RequestMapping ("get")
     public List<Athletes> getAthletes(){
         return athletsService.getAthletes();
     }
 
 
-    @RequestMapping("athletes/get/{athletesId}")
+    @RequestMapping("get/{athletesId}")
 public GetAthletsResponse createAthlets (@PathVariable Long athletesId){
 return athletsService.getAthletsById(athletesId);
     }
@@ -38,7 +41,7 @@ return athletsService.getAthletsById(athletesId);
         athletes.setSport("football");
         athletsService.saveAthletes(athletes);
     }
-    @RequestMapping(value = "athletes/get/{nationality}", method = RequestMethod.GET)
+    @RequestMapping(value = "get/{nationality}", method = RequestMethod.GET)
     public List<Athletes> getAthletes(@RequestParam(value = "nationality", required = false) String nationality ) {
         if (nationality != null) {
 
@@ -50,7 +53,7 @@ return athletsService.getAthletsById(athletesId);
     }
 
 
-    @RequestMapping(value = "athletes/search", method = RequestMethod.GET)
+    @RequestMapping(value = "search", method = RequestMethod.GET)
     public List<Athletes> searchAthletes(
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "sport", required = false) String sport,
@@ -59,6 +62,11 @@ return athletsService.getAthletsById(athletesId);
         return athletsService.searchAthletes(name, sport, country);
     }
 
+
+    @RequestMapping(value = "getByNationality")
+    public Athletes getAthletesByNationalityByQuery(@RequestParam String nationality) {
+        return athletsService.getAthletesByNationalityByQuery(nationality);
+    }
 
 
 }

@@ -16,30 +16,32 @@ public class AthletsService {
 
     @Autowired
     AthletesRepositry athletesRepositry;
-public void saveAthletes (Athletes athetes){
-    athletesRepositry.save(athetes);
-}
+
+    public void saveAthletes(Athletes athetes) {
+        athletesRepositry.save(athetes);
+    }
+
     public List<Athletes> getAthletes() {
 
-    return athletesRepositry.findAll();
+        return athletesRepositry.findAll();
     }
 
-public GetAthletsResponse getAthletsById (long Athletesid){
+    public GetAthletsResponse getAthletsById(long Athletesid) {
 
-    Optional<Athletes> optionalAthletes =  athletesRepositry.findById(Athletesid);
-    if(!optionalAthletes.isEmpty())
-    {
-        Athletes athletes =  optionalAthletes.get();
-        GetAthletsResponse AthletesResponse = new GetAthletsResponse(
-        athletes.getName(), athletes.getNationality(), athletes.getSport());
+        Optional<Athletes> optionalAthletes = athletesRepositry.findById(Athletesid);
+        if (!optionalAthletes.isEmpty()) {
+            Athletes athletes = optionalAthletes.get();
+            GetAthletsResponse AthletesResponse = new GetAthletsResponse(
+                    athletes.getName(), athletes.getNationality(), athletes.getSport());
 
-        return AthletesResponse;
+            return AthletesResponse;
+        }
+
+        return null;
+
+
     }
 
-    return null;
-
-
-}
     public List<Athletes> getAthletesByNationality(String Nationality) {
         Athletes exampleAthletes = new Athletes();
         exampleAthletes.setNationality(Nationality);
@@ -50,7 +52,7 @@ public GetAthletsResponse getAthletsById (long Athletesid){
         return athletesRepositry.findAll(example);
     }
 
-    public  GetAthletsResponse getAthletAsString (Athletes a) {
+    public GetAthletsResponse getAthletAsString(Athletes a) {
         GetAthletsResponse AthletsResponse = new GetAthletsResponse(a.getName(), a.getNationality(), a.getSport()
         );
 
@@ -76,4 +78,8 @@ public GetAthletsResponse getAthletsById (long Athletesid){
     }
 
 
+    public Athletes getAthletesByNationalityByQuery(String nationality) {
+        return athletesRepositry.getAtheletesByNationality(nationality);
+
+    }
 }
