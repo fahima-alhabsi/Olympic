@@ -82,4 +82,10 @@ public class AthletsService {
         return athletesRepositry.getAtheletesByNationality(nationality);
 
     }
+        public Athletes getAthletesNameByQuery(String name) {
+        return  athletesRepositry.getAthletesNameByQuery(name);
+
+    }
+
+
 }

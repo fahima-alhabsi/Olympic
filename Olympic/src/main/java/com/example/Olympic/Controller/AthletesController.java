@@ -64,7 +64,7 @@ return athletsService.getAthletsById(athletesId);
 
 
     @RequestMapping(value = "getByNationality")
-    public Athletes getAthletesByNationalityByQuery(@RequestParam String nationality) {
+    public  Athletes getAthletesByNationalityByQuery(@RequestParam String nationality) {
         return athletsService.getAthletesByNationalityByQuery(nationality);
     }
 

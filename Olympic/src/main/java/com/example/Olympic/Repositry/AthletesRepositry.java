@@ -14,4 +14,9 @@ import javax.persistence.Table;
 public interface AthletesRepositry extends JpaRepository<Athletes, Long> {
     @Query("SELECT * FROM Athletes WHERE nationality=:atheletesNationality")
     Athletes getAtheletesByNationality(@Param("atheletesNationality") String nationality);
+
+    @Query("SELECT * FROM Athletes WHERE name=:nameOfAtheletes")
+      Athletes getAthletesNameByQuery(@Param("nameOfAtheletes") String name) ;
+
+
 }
